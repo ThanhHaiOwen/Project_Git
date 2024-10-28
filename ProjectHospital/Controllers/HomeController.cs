@@ -19,9 +19,28 @@ namespace ProjectHospital.Controllers
 			return View();
 		}
 
+
 		public ActionResult GiaoDienDangKy()
 		{
 			return View();
+		}
+
+		[HttpPost]
+		public ActionResult xuLyDangKychobenhNhan(string HoVaTen,
+										string email,
+										string matkhau
+										) { 
+			DataModel db = new DataModel();
+			ViewBag.list = db.get("Exec THEMTAIKHOANBenhNhan N'" + HoVaTen + "','" + email + "','" + matkhau + "'");
+			if (ViewBag.list.Count > 0)
+			{
+				Session["taikhoan"] = ViewBag.list[0];
+				return RedirectToAction("GiaoDienDangKy", "Home");
+			}
+			else
+			{
+				return RedirectToAction("GiaoDienDangNhap", "Home");
+			}
 		}
 
 	}
