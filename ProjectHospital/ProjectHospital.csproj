@@ -126,11 +126,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\bootstrap-sl-1.12.1\bootstrap-select.css" />
     <Content Include="assets\bootstrap-sl-1.12.1\bootstrap-select.js" />
+    <Content Include="assets\CSSTuLam\DangKy.css" />
+    <Content Include="assets\CSSTuLam\DangNhap.css" />
     <Content Include="assets\html5lightbox\html5lightbox.js" />
     <Content Include="assets\jquery-ui-1.11.4\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="assets\jquery-ui-1.11.4\images\ui-bg_glass_65_ffffff_1x400.png" />
@@ -558,7 +561,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\revolution\fonts\revicons\revicons90c6.eot" />
@@ -583,6 +585,8 @@
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Shared\_PartialView.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\GiaoDienDangNhap.cshtml" />
+    <Content Include="Views\Home\GiaoDienDangKy.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
