@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+@Styles.Render("~/cssa")
+
+<!-- Responsive stylesheet B-->
+@*<link rel="stylesheet" href="css/responsive.css">*@
+@Styles.Render("~/cssb")
+<body>
+<section class="breadcrumb-area" style="background-color: #0392CE">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <h1>Departments</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="left pull-left">
+                        <ul>
+                            <li><a href="index-2.html">Home</a></li>
+                            <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                            <li class="active">Departments</li>
+                        </ul>
+                    </div>
+                    <div class="right pull-right">
+                        <a href="#">
+                            <span><i class="fa fa-share-alt" aria-hidden="true"></i>Share</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb area-->
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/custom")
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
+@Scripts.Render("~/bundles/revolution")
+</body>
+</html>
