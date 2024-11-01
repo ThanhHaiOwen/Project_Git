@@ -75,7 +75,7 @@ namespace ProjectHospital.Controllers
 					return RedirectToAction("Index", "Home");
 				}
 				if (VaiTro == 1) {
-					return RedirectToAction("index", "HomeAdmin");
+					return RedirectToAction("index", "HomeAdmin",new { area = "Admin"});
 				}
 				else
 				{
