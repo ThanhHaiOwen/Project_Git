@@ -13,5 +13,13 @@ namespace ProjectHospital.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult DanhSachPhuongThuc()
+        {
+            return View();
+        }
+        public ActionResult HoaDon()
+        {
+            return View();
+        }
     }
 }
