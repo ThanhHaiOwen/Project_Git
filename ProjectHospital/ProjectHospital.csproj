@@ -124,6 +124,7 @@
     <Compile Include="Areas\Admin\Controllers\AppointmentController.cs" />
     <Compile Include="Areas\Admin\Controllers\DoctorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PatientsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
@@ -659,6 +660,9 @@
     <Content Include="Areas\Admin\Views\Appointment\DanhSachCuocHen.cshtml" />
     <Content Include="Areas\Admin\Views\Appointment\ChiTietCuocHen.cshtml" />
     <Content Include="Areas\Admin\Views\Appointment\ChinhSuaCuocHen.cshtml" />
+    <Content Include="Areas\Admin\Views\Payments\DanhSachPhuongThuc.cshtml" />
+    <Content Include="Areas\Admin\Views\News\ThemTinTuc.cshtml" />
+    <Content Include="Areas\Admin\Views\Payments\HoaDon.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
