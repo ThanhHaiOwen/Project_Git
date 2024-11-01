@@ -56,8 +56,18 @@ namespace ProjectHospital
 
 			));
 
-			// Bundle cho các file JavaScript đặc biệt khác
-			bundles.Add(new ScriptBundle("~/bundles/revolution").Include(
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsa").Include("~/Areas/Admin/js/modernizr.min.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsb").Include("~/Areas/Admin/js/jquery-3.2.1.min.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsc").Include("~/Areas/Admin/js/popper.min.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsd").Include("~/Areas/Admin/js/bootstrap.min.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jse").Include("~/Areas/Admin/charts/js/raphael-min.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsf").Include("~/Areas/Admin/charts/js/morris.min.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsg").Include("~/Areas/Admin/js/custom-morris.js"));
+            bundles.Add(new ScriptBundle("~/Areas/Admin/jsh").Include("~/Areas/Admin/js/custom.js"));
+
+
+            // Bundle cho các file JavaScript đặc biệt khác
+            bundles.Add(new ScriptBundle("~/bundles/revolution").Include(
 						"~/assets/revolution/js/jquery.themepunch.tools.min.js",
 						"~/assets/revolution/js/jquery.themepunch.revolution.min.js",
 						 "~/assets/revolution/js/extensions/revolution.extension.actions.min.js",
@@ -82,11 +92,25 @@ namespace ProjectHospital
 
 			bundles.Add(new StyleBundle("~/cssa").Include("~/css/style.css"));
 			bundles.Add(new StyleBundle("~/cssb").Include("~/css/responsive.css"));
-			//bundles.Add(new StyleBundle("~/cssc").Include("~/css/bootstrap.min.css"));
-			//bundles.Add(new StyleBundle("~/cssd").Include("~/css/style.css"));
+            //bundles.Add(new StyleBundle("~/cssc").Include("~/css/bootstrap.min.css"));
+            //bundles.Add(new StyleBundle("~/cssd").Include("~/css/style.css"));
 
-			// Bật tối ưu hóa nếu đang ở chế độ Release
+            // Bật tối ưu hóa nếu đang ở chế độ Release
+
+            // Của Admin
+
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssc").Include("~/Areas/Admin/css/bootstrap.min.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssd").Include("~/Areas/Admin/css/themify-icons.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/csse").Include("~/Areas/Admin/css/animate.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssf").Include("~/Areas/Admin/css/styles.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssg").Include("~/Areas/Admin/css/red.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssh").Include("~/Areas/Admin/css/responsive.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssi").Include("~/Areas/Admin/css/morris.css"));
+            bundles.Add(new StyleBundle("~/Areas/Admin/cssj").Include("~/Areas/Admin/css/jquery-jvectormap.css"));
+
+
 			
-		}
-	}
+
+        }
+    }
 }
