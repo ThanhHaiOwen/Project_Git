@@ -83,10 +83,15 @@
                                     </div>
                                     <div class="text-holder">
                                         <h4>Call us now</h4>
-                                        <span>+1-888-987-6543</span>
+                                            <a>
+                                                @if (Session["taikhoan"] != null)
+                                                {
+                                                    <text>Xin Chào! @Session["taikhoan"]</text>
+                                                }
+                                            </a>
                                     </div>
                                 </li>
-                                <li>
+                                @*<li>
                                     <div class="icon-holder">
                                         <span class="flaticon-pin"></span>
                                     </div>
@@ -103,7 +108,7 @@
                                         <h4>Mon - Satday</h4>
                                         <span>09.00am to 18.00pm</span>
                                     </div>
-                                </li>
+                                </li>*@
                             </ul>
                             <div class="search-button pull-right">
                                 <div class="toggle-search">
@@ -124,7 +129,7 @@
                         <div class="search-form pull-right">
                             <form action="#">
                                 <div class="search">
-                                    <input type="search" name="search" value="" placeholder="Search">
+                                    <input type="search" name="search" value="" placeholder="Nhập tên bác sĩ bạn mong muốn">
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </div>
                             </form>
@@ -153,40 +158,39 @@
                                     <li class="current"><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
                                     <li class="dropdown">
                                         <a href="about.html">Bệnh Viện</a>
-                               
+
                                     </li>
                                     <li class="dropdown">
                                         <a href="@Url.Action("Index", "Department")">Y bác sĩ</a>
                                     </li>
                                     <li><a href="time-table.html">Tin Tức</a></li>
-                                    <li class="dropdown">
-                                        <a href="blog-default.html">News</a>
+                                    <li>
+                                        <a>
+                                            @if (Session["taikhoan"] != null)
+                                            {
+                                                <text>Xin Chào! @Session["taikhoan"]</text>
+                                            }
+                                        </a>
                                        
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="shop.html">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop Products</a></li>
-                                            <li><a href="shop-single.html">Products Single</a></li>
-                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="account.html">My Account</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+
+
                                 </ul>
                             </div>
+
                         </nav>
                         <!--End mainmenu-->
                         <!--Start mainmenu right box-->
                         <div class="mainmenu-right-box pull-right">
-                            <div class="cart_select">
-                                <button><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>(0)</span></button>
-                            </div>
-                            <div class="consultation-button">
-                                <a href="#">Đăng Nhập </a>
+                            <div class="consultation-button dropdown">
+                                <a href="@Url.Action("GiaoDienDangNhap","Home")">Đăng Nhập</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="login.html">Đăng Nhập</a></li>
+                                </ul>
                             </div>
                         </div>
+
+
                         <!--End mainmenu right box-->
                     </div>
                 </div>
