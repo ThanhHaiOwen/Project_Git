@@ -120,6 +120,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AppointmentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DoctorsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PatientsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -130,6 +136,51 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\charts\css\morris.css" />
+    <Content Include="Areas\Admin\charts\js\jquery.flot.min.js" />
+    <Content Include="Areas\Admin\charts\js\jquery.flot.time.min.js" />
+    <Content Include="Areas\Admin\charts\js\morris.min.js" />
+    <Content Include="Areas\Admin\charts\js\raphael-min.js" />
+    <Content Include="Areas\Admin\css\animate.css" />
+    <Content Include="Areas\Admin\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\css\jquery-jvectormap.css" />
+    <Content Include="Areas\Admin\css\red.css" />
+    <Content Include="Areas\Admin\css\responsive.css" />
+    <Content Include="Areas\Admin\css\styles.css" />
+    <Content Include="Areas\Admin\css\themify-icons.css" />
+    <Content Include="Areas\Admin\datatable\dataTables.bootstrap4.min.css" />
+    <Content Include="Areas\Admin\datatable\dataTables.bootstrap4.min.js" />
+    <Content Include="Areas\Admin\datatable\jquery.dataTables.min.js" />
+    <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Areas\Admin\fonts\themify9f24.svg" />
+    <Content Include="Areas\Admin\images\card-1.jpg" />
+    <Content Include="Areas\Admin\images\card-2.jpg" />
+    <Content Include="Areas\Admin\images\doctor.jpg" />
+    <Content Include="Areas\Admin\images\fav.png" />
+    <Content Include="Areas\Admin\images\logo-dark.png" />
+    <Content Include="Areas\Admin\images\logo.png" />
+    <Content Include="Areas\Admin\images\slide1.jpg" />
+    <Content Include="Areas\Admin\images\slide2.jpg" />
+    <Content Include="Areas\Admin\images\slide3.jpg" />
+    <Content Include="Areas\Admin\images\user1.png" />
+    <Content Include="Areas\Admin\images\user2.png" />
+    <Content Include="Areas\Admin\images\user3.png" />
+    <Content Include="Areas\Admin\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\js\custom-datatables.js" />
+    <Content Include="Areas\Admin\js\custom-flot.js" />
+    <Content Include="Areas\Admin\js\custom-gmap.js" />
+    <Content Include="Areas\Admin\js\custom-morris.js" />
+    <Content Include="Areas\Admin\js\custom-vector.js" />
+    <Content Include="Areas\Admin\js\custom.js" />
+    <Content Include="Areas\Admin\js\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Admin\js\jquery-jvectormap-world-mill.js" />
+    <Content Include="Areas\Admin\js\jquery-jvectormap.min.js" />
+    <Content Include="Areas\Admin\js\jquery.vmap.india.js" />
+    <Content Include="Areas\Admin\js\jquery.vmap.usa.js" />
+    <Content Include="Areas\Admin\js\modernizr.min.js" />
+    <Content Include="Areas\Admin\js\popper.min.js" />
     <Content Include="assets\bootstrap-sl-1.12.1\bootstrap-select.css" />
     <Content Include="assets\bootstrap-sl-1.12.1\bootstrap-select.js" />
     <Content Include="assets\CSSTuLam\DangKy.css" />
@@ -183,6 +234,7 @@
     <Content Include="assets\timepicker\images\ui-icons_444444_256x240.html" />
     <Content Include="assets\timepicker\timePicker.css" />
     <Content Include="assets\timepicker\timePicker.js" />
+    <Content Include="Content\Site.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\flexslider.css" />
@@ -561,6 +613,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\revolution\fonts\revicons\revicons90c6.eot" />
@@ -580,6 +633,32 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Areas\Admin\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\fonts\themify9f24.eot" />
+    <Content Include="Areas\Admin\fonts\themify9f24.ttf" />
+    <Content Include="Areas\Admin\fonts\themify9f24.woff" />
+    <Content Include="Areas\Admin\fonts\themifyd41d.eot" />
+    <Content Include="Areas\Admin\Views\Shared\_MasterLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctors\ThemBacSi.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctors\DanhSachBacSi.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctors\ChiTietBacSi.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctors\ChinhSuaBacSi.cshtml" />
+    <Content Include="Areas\Admin\Views\Payments\ThemPhuongThuc.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\ThemBenhNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\DanhSachBenhNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\ChiTietBenhNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\ChinhSuaBenhNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointment\ThemCuocHen.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointment\DanhSachCuocHen.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointment\ChiTietCuocHen.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointment\ChinhSuaCuocHen.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
