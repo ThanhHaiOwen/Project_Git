@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Collections;
 
 namespace ProjectHospital.Controllers
 {
@@ -11,6 +12,10 @@ namespace ProjectHospital.Controllers
 	{
 		public ActionResult Index()
 		{
+			if (Session["taikhoan"]== null)
+			{
+				return RedirectToAction("GiaoDienDangNhap","Home");
+			}
 			return View();
 		}
 
@@ -58,8 +63,25 @@ namespace ProjectHospital.Controllers
 			ViewBag.list = db.get("Exec DangNhapTaiKhoanbenhNhan '" + email + "','" + matkhau + "'");
 			if (ViewBag.list.Count > 0)
 			{
-				Session["taikhoan"] = ViewBag.list[0];
-				return RedirectToAction("Index", "Home");
+				// Lấy hàng đầu tiên
+				ArrayList user = (ArrayList)ViewBag.list[0]; // Lấy hàng đầu tiên
+				Session["taikhoan"] = user; // Lưu hàng vào session
+				Session["TenNguoiDung"] = user[1];
+				Session["Vaitro"] = user[5];
+
+				int VaiTro = Convert.ToInt32(user[5]);
+				if (VaiTro == 0)
+				{
+					return RedirectToAction("Index", "Home");
+				}
+				if (VaiTro == 1) {
+					return RedirectToAction("index", "HomeAdmin");
+				}
+				else
+				{
+					return RedirectToAction("ChinhSuaCuocHen", "Appointment");
+				}
+				
 			}
 			else
 			{

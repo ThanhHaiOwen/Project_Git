@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Collections
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,22 +82,17 @@
                                         <span class="flaticon-technology"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <h4>Call us now</h4>
-                                            <a>
-                                                @if (Session["taikhoan"] != null)
-                                                {
-                                                    <text>Xin Chào! @Session["taikhoan"]</text>
-                                                }
-                                            </a>
+                                        <h4>Gọi Số Hotline</h4>
+                                        <span>123456789</span>
                                     </div>
                                 </li>
-                                @*<li>
+                                <li>
                                     <div class="icon-holder">
                                         <span class="flaticon-pin"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <h4>121 Park Drive</h4>
-                                        <span>Varick St, Newyork 1006</span>
+                                        <h4>Khắp cả nước</h4>
+                                        <span></span>
                                     </div>
                                 </li>
                                 <li>
@@ -105,10 +100,10 @@
                                         <span class="flaticon-agenda"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <h4>Mon - Satday</h4>
+                                        <h4>Thứ 2 đến CN</h4>
                                         <span>09.00am to 18.00pm</span>
                                     </div>
-                                </li>*@
+                                </li>
                             </ul>
                             <div class="search-button pull-right">
                                 <div class="toggle-search">
@@ -155,25 +150,34 @@
                             </div>
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li class="current"><a href="@Url.Action("Index", "Home")">Homed</a></li>
+                                    <li class="current"><a href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
                                     <li class="dropdown">
-                                        <a href="about.html">Bệnh Viện</a>
+                                        <a href="@Url.Action("Index", "Department")">Bệnh Viện</a>
 
                                     </li>
                                     <li class="dropdown">
                                         <a href="@Url.Action("Index", "Department")">Y bác sĩ</a>
                                     </li>
-                                    <li><a href="time-table.html">Tin Tức</a></li>
+                                    <li><a href="@Url.Action("Index", "News")">Tin Tức</a></li>
                                     <li>
                                         <a>
                                             @if (Session["taikhoan"] != null)
                                             {
-                                                <text>Xin Chào! @Session["taikhoan"]</text>
-                                            }
-                                        </a>
-                                       
-                                    </li>
+                                                ArrayList user = (ArrayList)Session["taikhoan"];
+                                                <text>Xin Chào!<span style="color:violet"> @user[1]</span> </text>
 
+
+                                            }
+                                            else
+                                            {
+                                                <text>Chào mừng bạn!</text>
+                                            }
+
+
+
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("xulyDangXuat", "Home")">Đăng xuất</a></li>
 
                                 </ul>
                             </div>
