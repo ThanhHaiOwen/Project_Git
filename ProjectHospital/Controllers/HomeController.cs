@@ -31,14 +31,14 @@ namespace ProjectHospital.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult xuLyDangKychobenhNhan(string HoVaTen,
+		public ActionResult xuLyDangKychobenhNhan(
 										string email,
 										string matkhau
 										)
 		{
 			////tạo biến để lưu giá trị
 			DataModel db = new DataModel();
-			ViewBag.list = db.get("Exec THEMTAIKHOANBenhNhan N'" + HoVaTen + "','" + email + "','" + matkhau + "'");
+			ViewBag.list = db.get("Exec THEMTAIKHOANBenhNhan '" + email + "','" + matkhau + "'");
 			if (ViewBag.list.Count > 0 && ViewBag.list != null)
 			{
 				//Session["taikhoan"] = ViewBag.list[0];
@@ -66,10 +66,9 @@ namespace ProjectHospital.Controllers
 				// Lấy hàng đầu tiên
 				ArrayList user = (ArrayList)ViewBag.list[0]; // Lấy hàng đầu tiên
 				Session["taikhoan"] = user; // Lưu hàng vào session
-				Session["TenNguoiDung"] = user[1];
-				Session["Vaitro"] = user[5];
+				Session["Vaitro"] = user[4];
 
-				int VaiTro = Convert.ToInt32(user[5]);
+				int VaiTro = Convert.ToInt32(user[4]);
 				if (VaiTro == 0)
 				{
 					return RedirectToAction("Index", "Home");
@@ -79,7 +78,7 @@ namespace ProjectHospital.Controllers
 				}
 				else
 				{
-					return RedirectToAction("ChinhSuaCuocHen", "Appointment");
+					return RedirectToAction("ChinhSuaCuocHen", "Appointment", new { area = "Admin" });
 				}
 				
 			}
