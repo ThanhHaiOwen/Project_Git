@@ -14,7 +14,7 @@ namespace ProjectHospital.Controllers
 			return View();
 		}
 
-		public ActionResult GiaoDienDangNhap() 
+		public ActionResult GiaoDienDangNhap()
 		{
 			return View();
 		}
@@ -47,7 +47,7 @@ namespace ProjectHospital.Controllers
 			}
 
 		}
-		
+
 
 		[HttpPost]
 		public ActionResult xuLyDangNhapchobenhNhan(string email,
@@ -55,7 +55,7 @@ namespace ProjectHospital.Controllers
 										)
 		{
 			DataModel db = new DataModel();
-			ViewBag.list = db.get("Exec DangNhapTaiKhoanbenhNhan '"+email+"','"+matkhau+"'");
+			ViewBag.list = db.get("Exec DangNhapTaiKhoanbenhNhan '" + email + "','" + matkhau + "'");
 			if (ViewBag.list.Count > 0)
 			{
 				Session["taikhoan"] = ViewBag.list[0];
@@ -69,5 +69,12 @@ namespace ProjectHospital.Controllers
 			}
 		}
 
+		public ActionResult xuLyDangXuat()    
+		{
+			Session.Remove("taikhoan");
+			return RedirectToAction("Index", "Home");
+		}
 	}
-}
+} 
+
+	
