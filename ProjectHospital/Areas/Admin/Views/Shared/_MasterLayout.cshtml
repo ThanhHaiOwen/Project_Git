@@ -163,17 +163,17 @@
                 </li>
                 <li>
                     <a href="#nav-rooms" data-toggle="collapse" aria-expanded="false">
-                        <span class="ti-key"></span> Room Allotments
+                        <span class="ti-key"></span> Bệnh viện
                     </a>
                     <ul class="collapse list-unstyled" id="nav-rooms">
                         <li>
-                            <a href="add-room.html">Add Room Allotment</a>
+                            <a href="@Url.Action("ThemBenhVien", "Hospitals", new { area = "Admin" })">Thêm bệnh viện</a>
                         </li>
                         <li>
-                            <a href="rooms.html">All Rooms</a>
+                            <a href="@Url.Action("DanhSachBenhVien", "Hospitals", new { area = "Admin" })">Danh sách bệnh viện</a>
                         </li>
                         <li>
-                            <a href="edit-room.html">Edit Room Allotment</a>
+                            <a href="@Url.Action("ChinhSuaBenhVien", "Hospitals", new { area = "Admin" })">Chỉnh sửa bênh viện</a>
                         </li>
                     </ul>
                 </li>
