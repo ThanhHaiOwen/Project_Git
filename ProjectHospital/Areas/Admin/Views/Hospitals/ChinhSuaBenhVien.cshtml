@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ChinhSuaBenhVien";
     Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
 }
@@ -24,33 +23,33 @@
 <!-- /Page Title -->
 <!-- Main Content -->
 <div class="container-fluid">
-
     <div class="row">
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Sửa bệnh viện</h3>
-                <form>
+                @using (Html.BeginForm("ChinhSuaBenhVien", "Hospitals", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Doctor-name">Tên bệnh viện</label>
-                            <input type="text" value="Dr Daniel Smith" class="form-control" placeholder="Tên bệnh viện" id="Doctor-name">
+                            <input type="text" name="tenbenhvien" value="Dr Daniel Smith" class="form-control" placeholder="Tên bệnh viện" id="Doctor-name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="specialization">Chuyên về</label>
-                            <input type="text" value="Dentist" placeholder="Chuyên về" class="form-control" id="specialization">
+                            <input type="text" name="chuyenve" value="Dentist" placeholder="Chuyên về" class="form-control" id="specialization">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Số điện thoại</label>
-                            <input type="text" value="+91 12345 67890" placeholder="Phone" class="form-control" id="phone">
+                            <input type="text" name="sdt" value="+91 12345 67890" placeholder="Phone" class="form-control" id="phone">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="address">Địa chỉ</label>
-                            <textarea placeholder="Địa chỉ" class="form-control" id="address" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris odio, malesuada non rhoncus et, ultricies at turpis.</textarea>
+                            <textarea name="diachi" placeholder="Địa chỉ" class="form-control" id="address" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris odio, malesuada non rhoncus et, ultricies at turpis.</textarea>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="file">File</label>
-                            <input type="file" class="form-control" id="file">
+                            <input type="file" name="anhbenhvien" class="form-control" id="file">
                         </div>
 
                         <div class="form-check col-md-12 mb-2">
@@ -65,7 +64,7 @@
                             <button type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
                         </div>
                     </div>
-                </form>
+                }
                 <!-- Alerts-->
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Updated Successfully!</strong> Please Check in doctors list
