@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietBenhVien";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!-- Page Title -->
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Chi tiết bệnh viện</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Bệnh viện</li>
+            <li class="breadcrumb-item active">Chi tiết bệnh viện</li>
+        </ol>
+    </div>
+</div>
+<!-- /Page Title -->
+<!-- Main Content -->
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Chi tiết bệnh viện</h3>
+                <div class="row no-mp">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="~/Areas/Admin/images/@ViewBag.listBV[0][5]" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">@ViewBag.listBV[0][1]</h4>
+                                <button type="button" class="btn btn-success mb-2">
+                                    <span class="ti-pencil-alt"></span> Chỉnh sửa 
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <span class="ti-trash"></span> Xóa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Chuyên về</strong></td>
+                                        <td>@ViewBag.listBV[0][4]</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Địa chỉ</strong></td>
+                                        <td>@ViewBag.listBV[0][2]</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Số điện thoại</strong> </td>
+                                        <td>@ViewBag.listBV[0][3]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--Export links-->
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center export-pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#"><span class="ti-download"></span> csv</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#"><span class="ti-printer"></span> print</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#"><span class="ti-align-justify"></span> Excel</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!-- /Export links-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>
+<!-- /Main Content -->

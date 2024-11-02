@@ -124,6 +124,7 @@
     <Compile Include="Areas\Admin\Controllers\AppointmentController.cs" />
     <Compile Include="Areas\Admin\Controllers\DoctorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HospitalsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PatientsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaymentsController.cs" />
@@ -156,6 +157,13 @@
     <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.html" />
     <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.svg" />
     <Content Include="Areas\Admin\fonts\themify9f24.svg" />
+    <Content Include="Areas\Admin\images\BSBTT.jpg" />
+    <Content Include="Areas\Admin\images\BSLTH.jpg" />
+    <Content Include="Areas\Admin\images\BSLVC.jpg" />
+    <Content Include="Areas\Admin\images\BSNVC.jpg" />
+    <Content Include="Areas\Admin\images\BSPTD.jpg" />
+    <Content Include="Areas\Admin\images\BVHocMon.jpeg" />
+    <Content Include="Areas\Admin\images\BVTamAnh.jpg" />
     <Content Include="Areas\Admin\images\card-1.jpg" />
     <Content Include="Areas\Admin\images\card-2.jpg" />
     <Content Include="Areas\Admin\images\doctor.jpg" />
@@ -663,6 +671,10 @@
     <Content Include="Areas\Admin\Views\Payments\DanhSachPhuongThuc.cshtml" />
     <Content Include="Areas\Admin\Views\News\ThemTinTuc.cshtml" />
     <Content Include="Areas\Admin\Views\Payments\HoaDon.cshtml" />
+    <Content Include="Areas\Admin\Views\Hospitals\ThemBenhVien.cshtml" />
+    <Content Include="Areas\Admin\Views\Hospitals\DanhSachBenhVien.cshtml" />
+    <Content Include="Areas\Admin\Views\Hospitals\ChinhSuaBenhVien.cshtml" />
+    <Content Include="Areas\Admin\Views\Hospitals\ChiTietBenhVien.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />

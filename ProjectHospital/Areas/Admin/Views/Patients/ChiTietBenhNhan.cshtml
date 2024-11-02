@@ -7,7 +7,7 @@
 <!-- Page Title -->
 <div class="row no-margin-padding">
     <div class="col-md-6">
-        <h3 class="block-title">Patient Details</h3>
+        <h3 class="block-title">Chi tiết bệnh nhân</h3>
     </div>
     <div class="col-md-6">
         <ol class="breadcrumb">
@@ -16,8 +16,8 @@
                     <span class="ti-home"></span>
                 </a>
             </li>
-            <li class="breadcrumb-item">Patients</li>
-            <li class="breadcrumb-item active">Patient Details</li>
+            <li class="breadcrumb-item">Bệnh nhân</li>
+            <li class="breadcrumb-item active">Chi tiết bệnh nhân</li>
         </ol>
     </div>
 </div>
@@ -29,36 +29,40 @@
         <!-- Widget Item -->
         <div class="col-md-6">
             <div class="widget-area-2 proclinic-box-shadow">
-                <h3 class="widget-title">Patient Details</h3>
+                <h3 class="widget-title">Chi tiết bệnh nhân</h3>
                 <div class="table-responsive">
                     <table class="table table-bordered">
+
                         <tbody>
                             <tr>
-                                <td><strong>Name</strong></td>
-                                <td>Daniel Smith</td>
+                                <td><strong>Tên</strong></td>
+                                <td>@ViewBag.listBN[0][1]</td>
                             </tr>
                             <tr>
-                                <td><strong>Date Of Birth</strong> </td>
-                                <td>26-10-1989</td>
+                                <td><strong>Ngày sinh</strong> </td>
+                                <td>@ViewBag.listBN[0][2]</td>
                             </tr>
                             <tr>
-                                <td><strong>Gender</strong></td>
-                                <td>Male</td>
+                                <td><strong>Giới tính</strong></td>
+                                <td>@ViewBag.listBN[0][3]</td>
                             </tr>
                             <tr>
-                                <td><strong>Address</strong></td>
+                                <td><strong>Địa chỉ</strong></td>
                                 <td>
-                                    Koramangala
-                                    Banglore, India
+                                    @ViewBag.listBN[0][4]
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>Phone </strong></td>
-                                <td>+91 11111 11111</td>
+                                <td><strong>Lịch sử bệnh</strong></td>
+                                <td>@ViewBag.listBN[0][5]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Số dư</strong></td>
+                                <td>@ViewBag.listBN[0][6]</td>
                             </tr>
                             <tr>
                                 <td><strong>Email</strong></td>
-                                <td>your@email.com</td>
+                                <td>@ViewBag.listBN[0][7]</td>
                             </tr>
                         </tbody>
                     </table>
