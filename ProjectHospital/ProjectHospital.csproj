@@ -673,8 +673,8 @@
     <Content Include="Areas\Admin\Views\Payments\HoaDon.cshtml" />
     <Content Include="Areas\Admin\Views\Hospitals\ThemBenhVien.cshtml" />
     <Content Include="Areas\Admin\Views\Hospitals\DanhSachBenhVien.cshtml" />
-    <Content Include="Areas\Admin\Views\Hospitals\ChinhSuaBenhVien.cshtml" />
     <Content Include="Areas\Admin\Views\Hospitals\ChiTietBenhVien.cshtml" />
+    <Content Include="Areas\Admin\Views\Hospitals\TimBVUpdate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
