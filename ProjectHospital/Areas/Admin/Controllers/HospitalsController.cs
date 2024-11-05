@@ -52,51 +52,27 @@ namespace ProjectHospital.Areas.Admin.Controllers
             ViewBag.listBV = db.get("EXEC DanhSachBenhVien");
             return View();
         }
-        public ActionResult ChinhSuaBenhVien(int mabenhvien, string tenbenhvien, string diachi, string sdt, string chuyenve, HttpPostedFileBase anhbenhvien)
+        public ActionResult ChinhSuaBenhVien(string id, string tenbenhvien, string diachi, string sdt, string chuyenve, HttpPostedFileBase anhbenhvien)
         {
             try
             {
-                // Tạo đối tượng DataModel
-                DataModel db = new DataModel();
-
-                // Kiểm tra xem bệnh viện có tồn tại không
-                var checkExist = db.get("SELECT COUNT(*) FROM BENHVIEN WHERE MABENHVIEN = " + mabenhvien);
-                if (checkExist == null || (int)checkExist[0] == 0)
-                {
-                    ViewBag.ErrorMessage = "Bệnh viện không tồn tại.";
-                    return View();
-                }
-
+                
                 // Xử lý hình ảnh nếu có
-                string fileName = "";
+                
                 if (anhbenhvien != null && anhbenhvien.ContentLength > 0)
                 {
-                    fileName = Path.GetFileName(anhbenhvien.FileName);
+                    string fileName = Path.GetFileName(anhbenhvien.FileName);
                     string path = Path.Combine(Server.MapPath("~/Areas/Admin/images"), fileName);
                     anhbenhvien.SaveAs(path);
-                }
-
-                // Thực hiện cập nhật bệnh viện
-                var result = db.get("EXEC SuaBenhVien N'" + tenbenhvien + "', N'" + diachi + "', '" + sdt + "', N'" + chuyenve + "', " + mabenhvien + ";");
-
-                // Kiểm tra kết quả
-                if (result != null)
-                {
-                    TempData["SuccessMessage"] = "Cập nhật bệnh viện thành công!";
-                    return RedirectToAction("DanhSachBenhVien", "Hospitals", new { area = "Admin" });
-                }
-                else
-                {
-                    ViewBag.ErrorMessage = "Đã xảy ra lỗi khi cập nhật bệnh viện. Vui lòng thử lại.";
+                    // Tạo đối tượng DataModel
+                    DataModel db = new DataModel();
+                    // Thực hiện cập nhật bệnh viện
+                    db.get("EXEC SuaBenhVien N'" + tenbenhvien + "', N'" + diachi + "', '" + sdt + "', N'" + chuyenve + "','"+ anhbenhvien.FileName + "' ," + id + ";");
                 }
             }
-            catch (Exception ex)
-            {
-                ViewBag.ErrorMessage = "Đã xảy ra lỗi: " + ex.Message;
-            }
+            catch (Exception) { }
+            return RedirectToAction("DanhSachBenhVien", "Hospitals", new { area = "Admin" });
 
-            // Nếu có lỗi, quay lại trang hiện tại với thông báo
-            return View();
         }
 
         public ActionResult ChiTietBenhVien(int id)
@@ -114,6 +90,12 @@ namespace ProjectHospital.Areas.Admin.Controllers
             TempData["SuccessMessage"] = "Xóa bệnh viện thành công!";
 
             return RedirectToAction("DanhSachBenhVien", "Hospitals", new { area = "Admin" });
+        }
+        public ActionResult TimBVUpdate(string id)
+        {
+            DataModel db = new DataModel();
+            ViewBag.listBV = db.get("EXEC ChiTietBenhVien " + id + ";");
+            return View();
         }
 
     }
