@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Collections;
+using System.Data.SqlClient;
 
 namespace ProjectHospital.Controllers
 {
@@ -67,6 +68,7 @@ namespace ProjectHospital.Controllers
 				ArrayList user = (ArrayList)ViewBag.list[0]; // Lấy hàng đầu tiên
 				Session["taikhoan"] = user; // Lưu hàng vào session
 				Session["Vaitro"] = user[4];
+				Session["Matk"]=user[0];
 
 				int VaiTro = Convert.ToInt32(user[4]);
 				if (VaiTro == 0)
@@ -95,6 +97,28 @@ namespace ProjectHospital.Controllers
 			Session.Remove("taikhoan");
 			return RedirectToAction("Index", "Home");
 		}
+
+		public ActionResult ProfileLayout()
+		{
+			if (Session["MaTK"] != null)
+			{
+				string id = Session["MaTK"].ToString();
+				DataModel db = new DataModel();
+
+				// Tạo truy vấn SQL hoàn chỉnh với tham số được nối chuỗi (cần cẩn thận với SQL Injection)
+				string sqlQuery = "Exec ProfileLayout '" + id + "'";
+
+				ViewBag.list = db.get(sqlQuery);
+				return View();
+			}
+			else
+			{
+				return RedirectToAction("GiaoDienDangNhap", "Home");
+			}
+		}
+
+
+
 	}
 } 
 
