@@ -35,5 +35,8 @@ namespace ProjectHospital.Models
 			connection.Close();
 			return dataList;
 		}
+
+		
+
 	}
 }

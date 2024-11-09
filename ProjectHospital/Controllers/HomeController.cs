@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Collections;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace ProjectHospital.Controllers
 {
@@ -21,6 +22,10 @@ namespace ProjectHospital.Controllers
 		}
 
 		public ActionResult GiaoDienDangNhap()
+		{
+			return View();
+		}
+		public ActionResult GiaoDienDangKyChoBacSi()
 		{
 			return View();
 		}
@@ -50,6 +55,29 @@ namespace ProjectHospital.Controllers
 				// Sử dụng TempData để lưu thông báo lỗi
 				TempData["ErrorMessage"] = "Đăng ký thất bại, hãy thử lại.";
 				return RedirectToAction("GiaoDienDangKy", "Home");
+			}
+
+		}
+
+		[HttpPost]
+		public ActionResult xuLyDangKychoBacSi(
+										string email,
+										string matkhau
+										)
+		{
+			////tạo biến để lưu giá trị
+			DataModel db = new DataModel();
+			ViewBag.list = db.get("Exec THEMTAIKHOANBacSi '" + email + "','" + matkhau + "'");
+			if (ViewBag.list.Count > 0 && ViewBag.list != null)
+			{
+				//Session["taikhoan"] = ViewBag.list[0];
+				return RedirectToAction("GiaoDienDangNhap", "Home");
+			}
+			else
+			{
+				// Sử dụng TempData để lưu thông báo lỗi
+				TempData["ErrorMessage"] = "Đăng ký thất bại, hãy thử lại.";
+				return RedirectToAction("GiaoDienDangKyChoBacSi", "Home");
 			}
 
 		}
@@ -116,6 +144,51 @@ namespace ProjectHospital.Controllers
 				return RedirectToAction("GiaoDienDangNhap", "Home");
 			}
 		}
+
+
+		public ActionResult HienThiThongTinDeCapNhat(string id)
+		{
+			DataModel db = new DataModel();
+			ViewBag.list = db.get("Exec ProfileLayout " + id + ";");
+			return View();
+
+		}
+
+		[HttpPost]
+		public ActionResult UpdateProfile(string id,string HoTen, string NgaySinh, string GioiTinh, string DiaChi, string matkhau)
+		{
+			try
+			{
+				DataModel db=new DataModel();
+				db.get("Exec ChinhSuaTT " + id + ",N'" + HoTen + "','" + NgaySinh + "','" + GioiTinh + "', N'" + DiaChi + "', '"+matkhau+"'");
+			}
+			catch(Exception) { }
+			return RedirectToAction("ProfileLayout", "Home");
+		}
+
+		public ActionResult GiaoDienNapTien(string id)
+		{
+			DataModel db= new DataModel();
+			ViewBag.list=db.get("select * from PhuongThucThanhToan");
+			ViewBag.listpf = db.get("Exec ProfileLayout " + id + ";");
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult XuLyNapTien(string id, string SoTien, string MaThanhToan)
+		{
+			try
+			{
+				DataModel db = new DataModel();
+				db.get("Exec CapNhatTienNap " + id + ", "+SoTien +" ," + MaThanhToan + "");
+			}
+			catch (Exception) { }
+			return RedirectToAction("Index", "Home");
+		}
+
+
+
+
 
 
 

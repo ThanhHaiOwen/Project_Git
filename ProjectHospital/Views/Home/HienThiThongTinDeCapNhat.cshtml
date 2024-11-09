@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "HienThiThongTinDeCapNhat";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<form action="~/Home/UpdateProfile" method="post" enctype="multipart/form-data">
+    <!-- Thêm trường ẩn cho id -->
+    <input type="hidden" name="id" value="@ViewBag.list[0][9]" />
+
+    <div class="row">
+        <div class="col-sm-3">
+            <p class="mb-0">Họ và Tên</p>
+        </div>
+        <div class="col-sm-9">
+            <input type="text" name="HoTen" value="@ViewBag.list[0][0]" class="form-control" />
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <p class="mb-0">Ngày Sinh</p>
+        </div>
+        <div class="col-sm-9">
+            <input type="date" name="NgaySinh" value="@ViewBag.list[0][1]" class="form-control" />
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <p class="mb-0">Địa Chỉ</p>
+        </div>
+        <div class="col-sm-9">
+            <input type="text" name="DiaChi" value="@ViewBag.list[0][3]" class="form-control" />
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <p class="mb-0">Giới Tính </p>
+        </div>
+        <div class="col-sm-9">
+            <select name="GioiTinh" class="form-control">
+                <option value="1" @(ViewBag.list[0][2].ToString() == "1" ? "selected" : "")>Nam</option>
+                <option value="0" @(ViewBag.list[0][2].ToString() == "0" ? "selected" : "")>Nữ</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-3">
+            <p class="mb-0">Mật khẩu</p>
+        </div>
+        <div class="col-sm-9">
+            <input type="password" name="matkhau" value="@ViewBag.list[0][7]" class="form-control" />
+        </div>
+    </div>
+    <hr>
+
+    <div class="form-group text-center mt-4">
+        <button type="submit" class="btn btn-success">Cập nhật</button>
+    </div>
+</form>
+
+
+
+
+
