@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "GiaoDienNapTien";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2 class="text-center">Nạp Tiền Vào Tài Khoản</h2>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/Home/XuLyNapTien" method="post">
+                <input type="hidden" name="id" value="@ViewBag.listpf[0][9]"/>
+                <!-- Thông báo lỗi nếu có -->
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+
+                <!-- Số tiền nạp -->
+                <div class="form-group mb-3">
+                    <label for="soTien">Số Tiền Nạp (VND)</label>
+                    <input type="number" id="soTien" name="SoTien" class="form-control" min="1000" required>
+                </div>
+
+                <!-- Chọn phương thức thanh toán -->
+                <div class="form-group mb-3">
+                    <label for="phuongThuc">Phương Thức Thanh Toán</label>
+                    <select id="phuongThuc" name="MaThanhToan" class="form-control" required>
+                        @foreach (var a in ViewBag.list)
+                            {
+                                   <option value="@a[0]">@a[1]</option>
+                            }
+                    </select>
+                </div>
+
+                <!-- Nút nạp tiền -->
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Nạp Tiền</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        margin-top: 50px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+</style>
+
+

@@ -682,6 +682,10 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\GiaoDienDangNhap.cshtml" />
     <Content Include="Views\Home\GiaoDienDangKy.cshtml" />
+    <Content Include="Views\Home\ProfileLayout.cshtml" />
+    <Content Include="Views\Home\HienThiThongTinDeCapNhat.cshtml" />
+    <Content Include="Views\Home\GiaoDienDangKyChoBacSi.cshtml" />
+    <Content Include="Views\Home\GiaoDienNapTien.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

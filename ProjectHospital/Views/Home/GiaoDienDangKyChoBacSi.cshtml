@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "GiaoDienDangKyChoBacSi";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+
+    .h-custom {
+        height: calc(100% - 73px);
+    }
+
+    @@media (max-width: 450px) {
+        .h-custom {
+            height: 100%;
+        }
+    }
+</style>
+<h1 style="text-align: center; margin-bottom: 20px;">Đây là phần đăng ký chỉ dành cho <span style="color: red">bác sĩ </span> </h1>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+                <form id="loginForm" action="/Home/xuLyDangKychoBacSi" method="post">
+                    <div class="divider d-flex align-items-center my-4">
+
+                    </div>
+
+                    @*<div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="formHoVaTen">Nhập Họ Và Tên</label>
+                            <input type="text" id="formHoVaTen" class="form-control form-control-lg"
+                                   placeholder="nhập Họ và tên" name="HoVaTen" required />
+                        </div>*@
+                    <div><br /></div>
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="form3Example3">Nhập địa chỉ Email</label>
+                        <input type="email" id="form3Example3" class="form-control form-control-lg"
+                               placeholder="nhập địa chỉ Email" name="email" required />
+
+                    </div>
+                    <div><br /></div>
+
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-3">
+                        <label class="form-label" for="form3Example4">Mật khẩu</label>
+                        <input type="password" id="form3Example4" class="form-control form-control-lg"
+                               placeholder="Nhập password" name="matkhau" required />
+                    </div>
+                    <div><br /></div>
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-3">
+                        <label class="form-label" for="form3Example5">Xác nhận lại mật khẩu</label>
+                        <input type="password" id="form3Example5" class="form-control form-control-lg"
+                               placeholder="Xác nhận lại password" name="matkhauXacNhan" required />
+                    </div>
+
+            </div>
+
+            <div><br /></div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                    Đăng Ký
+                </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                    Bạn đã có tài khoản?
+                    <a href="/Home/GiaoDienDangNhap" style="color:blueviolet">Đăng nhập tại đây</a>
+                </p>
+            </div>
+            </form>
+
+            <script>
+                    document.getElementById("loginForm").addEventListener("submit", function (event) {
+                        const emailInput = document.getElementById("form3Example3").value;
+                        const passwordInput = document.getElementById("form3Example4").value;
+                        const confirmPasswordInput = document.getElementById("form3Example5").value; // Đảm bảo id của trường xác nhận mật khẩu là khác
+
+                        // Kiểm tra định dạng email
+                        const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+                        if (!emailRegex.test(emailInput)) {
+                            alert("Vui lòng nhập đúng định dạng email.");
+                            event.preventDefault(); // Ngăn gửi form nếu email không hợp lệ
+                            return; // Kết thúc hàm
+                        }
+
+                        // Kiểm tra mật khẩu xác nhận
+                        if (passwordInput !== confirmPasswordInput) {
+                            alert("Mật khẩu xác nhận không khớp.");
+                            event.preventDefault(); // Ngăn gửi form nếu mật khẩu xác nhận không khớp
+                        }
+                    });
+            </script>
+
+        </div>
+    </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+            Copyright © 2020. All rights reserved.
+        </div>
+        <!-- Copyright -->
+    </div>
+</section>
+
+
