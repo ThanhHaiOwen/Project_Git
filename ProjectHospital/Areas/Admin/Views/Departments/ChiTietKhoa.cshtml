@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "ThemKhoa";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!-- Page Title -->
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Thêm Khoa</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Khoa</li>
+            <li class="breadcrumb-item active">Thêm khoa</li>
+        </ol>
+    </div>
+</div>
+<!-- /Page Title -->
+<!-- Main Content -->
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Thêm khoa</h3>
+                <form action="@Url.Action("ChinhSuaKhoa", "Departments", new { area = "Admin" })" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="hidden" name="id" value="@ViewBag.listK[0][0]" />
+                            <label for="patient-name">Tên khoa</label>
+                            <input type="text" class="form-control" placeholder="Tên khoa" id="patient-name" name="tenkhoa">
+                        </div>
+                        <div class="form-check col-md-12 mb-2">
+                            <div class="text-left">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="ex-check-2">
+                                    <label class="custom-control-label" for="ex-check-2">Vui lòng xác nhận</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Gửi</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>
+<!-- /Main Content -->
