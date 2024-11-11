@@ -29,8 +29,9 @@
                             <h5 class="my-3">@a[0]</h5>
                             <h5 class="my-3">@a[9]</h5>
                             <p class="text-muted mb-1">@a[1]</p>
+                           
                             <p class="text-muted mb-4">
-                                @if (Convert.ToInt32(a[2]) == 1)
+                                @if (a[2]?.ToString() == "True")
                                 {
                                     <span>Nam</span>
                                 }
@@ -38,6 +39,7 @@
                                 {
                                     <span>Nữ</span>
                                 }
+
                             </p>
                             <div class="d-flex justify-content-center mb-2">
                                 <a href="~/Home/HienThiThongTinDeCapNhat?id=@a[9]" class="btn btn-primary">Chỉnh sửa thông tin cá nhân</a>

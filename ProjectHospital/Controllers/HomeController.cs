@@ -14,11 +14,15 @@ namespace ProjectHospital.Controllers
 	{
 		public ActionResult Index()
 		{
-			if (Session["taikhoan"]== null)
+			if (Session["taikhoan"] == null)
 			{
-				return RedirectToAction("GiaoDienDangNhap","Home");
+				return RedirectToAction("GiaoDienDangNhap", "Home");
 			}
+			else { DataModel db = new DataModel();
+			ViewBag.list = db.get("select * from BenhVien");
 			return View();
+			}
+			
 		}
 
 		public ActionResult GiaoDienDangNhap()

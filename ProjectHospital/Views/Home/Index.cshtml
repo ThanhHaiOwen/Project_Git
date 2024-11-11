@@ -181,7 +181,7 @@
         <section class="medical-departments-area">
             <div class="container">
                 <div class="sec-title">
-                    <h1>Medical Departments</h1>
+                    <h1>Các Bệnh Viện</h1>
                     <span class="border"></span>
                 </div>
                 <div class="row">
@@ -197,18 +197,26 @@
                             <!--End single item-->
                             <div class="owl-stage-outer">
                                 <div class="owl-stage" style="transform: translate3d(-969.999px, 0px, 0px); transition: 0.7s; width: 3233.33px;">
-                                    <div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
-                                        <div class="single-item text-center">
-                                            <div class="iocn-holder">
-                                                <span class="flaticon-lungs"></span>
+                                    @foreach (var a in ViewBag.list)
+                                    {
+                                        <div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
+
+                                            <div class="single-item text-center">
+                                                <div class="iocn-holder">
+                                                    <img src="~/Areas/Admin/images/@a[5]" alt="Cardiology Image" style="width: 50px; height: 50px;">
+                                                </div>
+                                                <div class="text-holder">
+                                                    <h3>@a[1]</h3>
+                                                    <p> @a[2]</p>
+                                                </div>
+                                                <a class="readmore" href="#">Đọc thêm</a>
                                             </div>
-                                            <div class="text-holder">
-                                                <h3>Pulmonology</h3>
-                                                <p> Who chooses to enjoy a pleasure that has annoying consquences, or one who avoids a pain.</p>
-                                            </div>
-                                            <a class="readmore" href="#">Read More</a>
+
+
+
                                         </div>
-                                    </div><div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
+                                    }
+                                    <div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
                                         <div class="single-item text-center">
                                             <div class="iocn-holder">
                                                 <span class="flaticon-vagina"></span>
@@ -219,7 +227,27 @@
                                             </div>
                                             <a class="readmore" href="#">Read More</a>
                                         </div>
-                                    </div><div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
+                                    </div>
+                                    @foreach (var a in ViewBag.list)
+                                    {
+                                        <div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
+
+                                            <div class="single-item text-center">
+                                                <div class="iocn-holder">
+                                                    <img src="~/Areas/Admin/images/@a[5]" alt="Cardiology Image" style="width: 50px; height: 50px;">
+                                                </div>
+                                                <div class="text-holder">
+                                                    <h3>@a[1]</h3>
+                                                    <p> @a[2]</p>
+                                                </div>
+                                                <a class="readmore" href="#">Đọc thêm</a>
+                                            </div>
+
+
+
+                                        </div>
+                                    }
+                                    <div class="owl-item cloned" style="width: 293.333px; margin-right: 30px;">
                                         <div class="single-item text-center">
                                             <div class="iocn-holder">
                                                 <span class="flaticon-neurology"></span>
@@ -310,6 +338,7 @@
                                     </div>
                                 </div>
                             </div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style=""><span class="fa fa-angle-left"></span></div><div class="owl-next" style=""><span class="fa fa-angle-right"></span></div></div><div class="owl-dots" style="display: none;"></div></div>
+                       
                         </div>
                     </div>
                 </div>

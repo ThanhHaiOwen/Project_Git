@@ -623,6 +623,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Hinh\BasSi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\revolution\fonts\revicons\revicons90c6.eot" />
