@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!--Start breadcrumb area-->
+@Html.Partial("_PartialView")
+<!--End breadcrumb area-->
+<!--Start Medical Departments area-->
+<section class="medical-departments-area departments-page">
+    <div class="container">
+        <div class="row">
+            <!--Start single item-->
+            <form action="~/Doctor/TimKiemBacSi" method="get">
+                <input type="text" name="hoten" placeholder="Nhập tên bác sĩ" />
+                <input type="submit" value="Tìm kiếm" />
+            </form>
+
+            <!-- Thông báo không tìm thấy bác sĩ -->
+            @if (ViewBag.Message != null)
+            {
+                <p style="color: red; font-weight: bold;">@ViewBag.Message</p>
+            }
+
+            <!-- Hiển thị danh sách bác sĩ nếu có -->
+            @foreach (var a in ViewBag.listBS)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-item text-center">
+                        <div class="iocn-holder">
+                            <img src="~/Areas/Admin/images/@a[5]" alt="Cardiology Image" style="width: 50px; height: 50px;">
+                        </div>
+                        <div class="text-holder">
+                            <h3>@a[1]</h3>
+                            <p>@a[4]</p>
+                            <p>@a[5]</p>
+                        </div>
+                        <a class="readmore" href="cardiac-clinic.html">Đọc thêm</a>
+                    </div>
+                </div>
+            }
+            <!--End single item-->
+        </div>
+    </div>
+</section>
+<!--End Medical Departments area-->
