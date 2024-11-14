@@ -112,7 +112,8 @@ namespace ProjectHospital.Controllers
 				}
 				else
 				{
-					return RedirectToAction("ChinhSuaCuocHen", "Appointment", new { area = "Admin" });
+					return RedirectToAction("ProfileLayoutBS", "Home");
+
 				}
 				
 			}
@@ -149,7 +150,7 @@ namespace ProjectHospital.Controllers
 			}
 		}
 
-
+		 
 		public ActionResult HienThiThongTinDeCapNhat(string id)
 		{
 			DataModel db = new DataModel();
@@ -157,8 +158,15 @@ namespace ProjectHospital.Controllers
 			return View();
 
 		}
+        public ActionResult HienThiThongTinDeCapNhatBS(string id)
+        { 
+            DataModel db = new DataModel();
+            ViewBag.listBS = db.get("Exec ChiTietBacSi " + id + ";");
+            return View();
 
-		[HttpPost]
+        }
+
+        [HttpPost]
 		public ActionResult UpdateProfile(string id,string HoTen, string NgaySinh, string GioiTinh, string DiaChi, string matkhau)
 		{
 			try
@@ -189,14 +197,57 @@ namespace ProjectHospital.Controllers
 			catch (Exception) { }
 			return RedirectToAction("Index", "Home");
 		}
+        public ActionResult ProfileLayoutBS()
+        {
+            if (Session["MaTK"] != null)
+            {
+                string id = Session["MaTK"].ToString();
+                DataModel db = new DataModel();
+
+                // Tạo truy vấn SQL hoàn chỉnh với tham số được nối chuỗi (cần cẩn thận với SQL Injection)
+                string sqlQuery = "Exec ChiTietBacSi '" + id + "'";
+
+                ViewBag.listBS = db.get(sqlQuery);
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("GiaoDienDangNhap", "Home");
+            }
+        }
+      
+        [HttpPost]
+        public ActionResult UpdateProfileBS(string id, string HoTen, string NgaySinh, string NamKinhNghiem, string TenKhoa, string TenBV, string matkhau, string email, HttpPostedFileBase AnhBacSi)
+        {
+			try
+			{
+                
+           
+                // Kiểm tra nếu ảnh đại diện được tải lên
+                if (AnhBacSi != null && AnhBacSi.ContentLength > 0)
+				{
+					// Lưu ảnh vào thư mục hình ảnh
+					string fileName = Path.GetFileName(AnhBacSi.FileName); // Lấy tên file của ảnh
+					string path = Path.Combine(Server.MapPath("~/Areas/Admin/images"), fileName); // Đường dẫn lưu ảnh
+					AnhBacSi.SaveAs(path); // Lưu ảnh vào thư mục
+                    DataModel db = new DataModel();
+
+                    // Thực thi stored procedure `ChinhSuaThongTinBacSi` với các tham số truyền vào, bao gồm tên ảnh đại diện
+                    db.get("Exec ChinhSuaThongTinBacSi "+ id + ", N'" + HoTen + "', '" + NgaySinh + "', " + NamKinhNghiem + ", N'" + TenKhoa + "', N'" + TenBV + "', '" + matkhau + "', N'" + email + "', N'" + AnhBacSi.FileName + "'");
+
+				}
+
+			}
+			catch (Exception){ }
+            return RedirectToAction("ProfileLayoutBS", "Home");
+        }
 
 
 
 
 
 
-
-	}
+    }
 } 
 
 	

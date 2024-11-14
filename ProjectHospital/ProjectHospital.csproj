@@ -691,6 +691,8 @@
     <Content Include="Views\Home\HienThiThongTinDeCapNhat.cshtml" />
     <Content Include="Views\Home\GiaoDienDangKyChoBacSi.cshtml" />
     <Content Include="Views\Home\GiaoDienNapTien.cshtml" />
+    <Content Include="Views\Home\ProfileLayoutBS.cshtml" />
+    <Content Include="Views\Home\HienThiThongTinDeCapNhatBS.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
