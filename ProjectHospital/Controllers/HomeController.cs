@@ -243,11 +243,7 @@ namespace ProjectHospital.Controllers
         }
 
 
-
-
-
-
-    }
+	}
 } 
 
 	
