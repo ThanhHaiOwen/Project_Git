@@ -129,6 +129,7 @@
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PatientsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\BacSiAPIController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -626,6 +627,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Hinh\BasSi\" />
+    <Folder Include="Views\BacSiAPI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\revolution\fonts\revicons\revicons90c6.eot" />

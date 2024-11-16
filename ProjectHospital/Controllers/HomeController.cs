@@ -174,7 +174,9 @@ namespace ProjectHospital.Controllers
 				DataModel db=new DataModel();
 				db.get("Exec ChinhSuaTT " + id + ",N'" + HoTen + "','" + NgaySinh + "','" + GioiTinh + "', N'" + DiaChi + "', '"+matkhau+"'");
 			}
-			catch(Exception) { }
+			catch(Exception) {
+				return RedirectToAction("HienThiThongTinCapNhat", "Home");
+			}
 			return RedirectToAction("ProfileLayout", "Home");
 		}
 
@@ -243,11 +245,7 @@ namespace ProjectHospital.Controllers
         }
 
 
-
-
-
-
-    }
+	}
 } 
 
 	

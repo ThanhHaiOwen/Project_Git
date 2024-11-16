@@ -25,8 +25,8 @@ namespace ProjectHospital.Models
 				while (r.Read())
 				{
 					ArrayList row = new ArrayList();
-					for (int i = 0; i < r.FieldCount; i++) { 
-						row.Add(r.GetValue(i).ToString());
+					for (int i = 0; i < r.FieldCount; i++) {
+						row.Add(xulydulieu(r.GetValue(i).ToString()));
 					}
 					dataList.Add(row);
 				}
@@ -36,7 +36,15 @@ namespace ProjectHospital.Models
 			return dataList;
 		}
 
-		
+		public string xulydulieu(string text)
+		{
+			String s = text.Replace(",", "&44;");
+			s = s.Replace("\"", "&34;");
+			s = s.Replace("'", "&39;");
+			s = s.Replace("\r", "");
+			s = s.Replace("\n", "");
+			return s;
+		}
 
 	}
 }
