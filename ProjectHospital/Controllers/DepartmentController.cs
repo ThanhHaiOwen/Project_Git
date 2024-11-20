@@ -16,5 +16,12 @@ namespace ProjectHospital.Controllers
             ViewBag.list = db.get("select * from BenhVien");
             return View();
         }
+        public ActionResult HienThiBacSi(string id)
+        {
+            DataModel db = new DataModel();
+            ViewBag.listBS = db.get("Exec LayThongTinBacSiTheoBenhVien " + id + ";");
+            return View();
+
+        }
     }
 }

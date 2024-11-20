@@ -698,6 +698,10 @@
     <Content Include="Views\Home\HienThiThongTinDeCapNhatBS.cshtml" />
     <Content Include="Views\Doctor\Index.cshtml" />
     <Content Include="Views\Doctor\TimKiemBacSi.cshtml" />
+    <Content Include="Views\Doctor\Home.cshtml" />
+    <Content Include="Views\Doctor\ProfileLayoutBS.cshtml" />
+    <Content Include="Views\Doctor\HienThiThongTinDeCapNhatBS.cshtml" />
+    <Content Include="Views\Department\HienThiBacSi.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

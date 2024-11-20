@@ -112,7 +112,7 @@ namespace ProjectHospital.Controllers
 				}
 				else
 				{
-					return RedirectToAction("ProfileLayoutBS", "Home");
+					return RedirectToAction("Home", "Doctor");
 
 				}
 				

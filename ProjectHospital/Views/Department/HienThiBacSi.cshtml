@@ -1,30 +1,27 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "HienThiBacSi";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
-
-
 <!--Start breadcrumb area-->
 @Html.Partial("_PartialView")
 <!--End breadcrumb area-->
-<!--Start Medical Departments area-->
 <section class="medical-departments-area departments-page">
     <div class="container">
         <div class="row">
             <!--Start single item-->
-            @foreach (var a in ViewBag.list)
+            @foreach (var a in ViewBag.listBS)
             {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="single-item text-center">
                         <div class="iocn-holder">
-                            <img src="~/Areas/Admin/images/@a[5]" alt="Cardiology Image" style="width: 200px; height: 200px;">
+                            <img src="~/Hinh/team/@a[6]" alt="Cardiology Image" style="width: 200px; height: 200px;">
                         </div>
                         <div class="text-holder">
                             <h3>@a[1]</h3>
-                            <p>@a[2]</p>
+                            <p>@a[4]</p>    
                         </div>
-                        <a class="readmore"  href="~/Department/HienThiBacSi?id=@a[0]">Đọc thêm</a>
+                        <a class="readmore" href="">Đặt lịch</a>
                     </div>
                 </div>
             }
@@ -32,4 +29,4 @@
         </div>
     </div>
 </section>
-<!--End Medical Departments area-->
+
