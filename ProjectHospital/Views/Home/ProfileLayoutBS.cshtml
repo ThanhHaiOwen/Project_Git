@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "ProfileLayoutBS";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!-- Page Title -->
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Thông tin cá nhân</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Bác sĩ</li>
+            <li class="breadcrumb-item active">Thông tin các nhân</li>
+        </ol>
+    </div>
+</div>
+<!-- /Page Title -->
+<!-- Main Content -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Thông tin cá nhân</h3>
+                @foreach (var a in ViewBag.listBS)
+                {
+                    <div class="row no-mp">
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img class="card-img-top" src="~/Hinh/team/1.jpg" alt="Card image">
+                                @*<img class="card-img-top" src="~/Areas/Admin/images/@a[11]" alt="Card image">*@
+                            <div class="card-body">
+                                <h4 class="card-title">@a[1]</h4>
+                                <form action="@Url.Action("HienThiThongTinDeCapNhatBS", "Home")" method="get">
+                                    <input type="hidden" name="id" value="@a[9]" />
+                                    <button type="submit"  class="btn btn-success mb-2">Chỉnh sửa thông tin</button>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Ngày tạo tài khoản</strong></td>
+                                            <td>@a[8]</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Chuyên khoa</strong></td>
+                                            <td>@a[4]</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Bệnh viện</strong></td>
+                                            <td>
+                                                @a[5]
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Năm kinh nghiệm</strong> </td>
+                                            <td>@a[3]</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Ngày sinh</strong> </td>
+                                            <td>@a[2]</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Email</strong></td>
+                                            <td>@a[6]</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /Widget Item -->
+      
+    </div>
+</div>
+<!-- /Main Content -->

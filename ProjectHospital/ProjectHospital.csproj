@@ -129,7 +129,9 @@
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PatientsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\BacSiAPIController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -625,6 +627,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Hinh\BasSi\" />
+    <Folder Include="Views\BacSiAPI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\revolution\fonts\revicons\revicons90c6.eot" />
@@ -691,6 +694,15 @@
     <Content Include="Views\Home\HienThiThongTinDeCapNhat.cshtml" />
     <Content Include="Views\Home\GiaoDienDangKyChoBacSi.cshtml" />
     <Content Include="Views\Home\GiaoDienNapTien.cshtml" />
+    <Content Include="Views\Home\ProfileLayoutBS.cshtml" />
+    <Content Include="Views\Home\HienThiThongTinDeCapNhatBS.cshtml" />
+    <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Doctor\TimKiemBacSi.cshtml" />
+    <Content Include="Views\Doctor\Home.cshtml" />
+    <Content Include="Views\Doctor\ProfileLayoutBS.cshtml" />
+    <Content Include="Views\Doctor\HienThiThongTinDeCapNhatBS.cshtml" />
+    <Content Include="Views\Department\HienThiBacSi.cshtml" />
+    <Content Include="Views\Department\GDDatLich.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

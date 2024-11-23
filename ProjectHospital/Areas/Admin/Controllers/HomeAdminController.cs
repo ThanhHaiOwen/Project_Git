@@ -13,5 +13,6 @@ namespace ProjectHospital.Areas.Admin.Controllers
         {
             return View();
         }
+
     }
 }

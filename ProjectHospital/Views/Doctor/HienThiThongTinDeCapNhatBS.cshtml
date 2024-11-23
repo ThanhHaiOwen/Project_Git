@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "HienThiThongTinDeCapNhatBS";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!-- Main Content -->
+<div class="container-fluid" style="padding: 170px">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title" style="padding-bottom:20px">Chỉnh sửa thông tin</h3>
+                <form action="~/Doctor/UpdateProfileBS" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="@ViewBag.listBS[0][0]" />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Doctor-name">Tên bác sĩ</label>
+                            <input type="text" class="form-control" placeholder="Tên bác sĩ" id="Doctor-name" name="HoTen" value="@ViewBag.listBS[0][1]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dob">Ngày sinh</label>
+                            <input type="date" placeholder="Ngày sinh" class="form-control" id="dob" name="NgaySinh" value="@ViewBag.listBS[0][2]">
+                        </div>
+                        @*<div class="form-group col-md-6">
+                        <label for="specialization">Chuyên khoa</label>
+                        <input type="text" placeholder="Chuyên khoa" class="form-control" id="specialization" name="TenKhoa" value="@ViewBag.listBS[0][4]">
+                        </div>*@
+                        <tr>
+                            <td>Chuyên khoa</td>
+                            <td>
+                                <select name="MaKhoa">
+                                    @foreach (var b in ViewBag.listK)
+                                    {
+                                        <option value="@b[0]">@b[1]</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        @*<div class="form-group col-md-6">
+                            <label for="age">Bệnh viên</label>
+                            <input type="text" placeholder="Tên bệnh viện" class="form-control" id="age" name="TenBV" value="@ViewBag.listBS[0][5]">
+
+                        </div>*@
+                        <tr>
+                            <td>Bệnh viện</td>
+                            <td>
+                                <select name="MaBV">
+                                    @foreach (var c in ViewBag.listBV)
+                                    {
+                                        <option value="@c[0]">@c[1]</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <div class="form-group col-md-6">
+                            <label for="age">Năm kinh nghiệm</label>
+                            <input type="text" placeholder="Năm kinh nghiệm" class="form-control" id="age" name="NamKinhNghiem" value="@ViewBag.listBS[0][3]">
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Mật khẩu</label>
+                            <input type="password" placeholder="Mật  khẩu" class="form-control" id="phone" name="matkhau" value="@ViewBag.listBS[0][7]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Email" class="form-control" id="Email" name="email" value="@ViewBag.listBS[0][6]">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="file">File</label>
+                            <input type="file" name="AnhBacSi" class="form-control" id="file">
+                        </div>
+
+                        <div class="form-check col-md-12 mb-2">
+                            <div class="text-left">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="ex-check-2">
+                                    <label class="custom-control-label" for="ex-check-2">Hãy xác nhận</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Xác nhận</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- /Alerts-->
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>
+<!-- /Main Content -->
