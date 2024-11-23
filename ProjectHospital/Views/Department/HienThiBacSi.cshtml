@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 <!--Start breadcrumb area-->
-@Html.Partial("_PartialView")
+@*@Html.Partial("_PartialView")*@
 <!--End breadcrumb area-->
 <section class="medical-departments-area departments-page">
     <div class="container">
@@ -19,9 +19,11 @@
                         </div>
                         <div class="text-holder">
                             <h3>@a[1]</h3>
-                            <p>@a[4]</p>    
+                            <p>@a[4]</p>
+                            <p><strong>Phí khám: </strong>@a[5] VND</p>
                         </div>
-                        <a class="readmore" href="">Đặt lịch</a>
+                        <a class="readmore" href="~/Department/GDDatLich?maBS=@a[0]">Đặt lịch</a>
+                        @*?maBS=@a[0]*@
                     </div>
                 </div>
             }

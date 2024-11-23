@@ -101,6 +101,7 @@ namespace ProjectHospital.Controllers
 				Session["taikhoan"] = user; // Lưu hàng vào session
 				Session["Vaitro"] = user[4];
 				Session["Matk"]=user[0];
+				Session["MaBN"] = user[5];
 
 				int VaiTro = Convert.ToInt32(user[4]);
 				if (VaiTro == 0)

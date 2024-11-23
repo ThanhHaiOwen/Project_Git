@@ -702,6 +702,7 @@
     <Content Include="Views\Doctor\ProfileLayoutBS.cshtml" />
     <Content Include="Views\Doctor\HienThiThongTinDeCapNhatBS.cshtml" />
     <Content Include="Views\Department\HienThiBacSi.cshtml" />
+    <Content Include="Views\Department\GDDatLich.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

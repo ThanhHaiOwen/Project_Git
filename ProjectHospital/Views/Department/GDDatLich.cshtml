@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "GDDatLich";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch Khám</title>
+    <style>
+        .booking-form {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .booking-form h2 {
+                text-align: center;
+                color: #333;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                color: #555;
+                margin-bottom: 5px;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+            .form-control:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .submit-btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <form method="post" action="~/Department/XuLyDatLich" class="booking-form">
+        <input type="hidden" name="MaBS" value="@ViewBag.MaBS" />
+        <input type="hidden" name="MaBN" value="@ViewBag.MaBN" />
+
+        <h2>Đặt Lịch Khám</h2>
+        <h2>@ViewBag.MaBS</h2>
+        <h2>@ViewBag.MaBN</h2>
+
+        <div class="form-group">
+            <label for="ngayHen">Ngày Hẹn:</label>
+            <input type="date" id="ngayHen" name="NgayHen" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="thoiGianBD">Thời Gian Bắt Đầu:</label>
+            <input type="time" id="thoiGianBD" name="ThoiGianBD" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="thoiGianKT">Thời Gian Kết Thúc:</label>
+            <input type="time" id="thoiGianKT" name="ThoiGianKT" class="form-control" required />
+        </div>
+
+        <button type="submit" class="submit-btn">Đặt Lịch</button>
+    </form>
+</body>
+</html>
