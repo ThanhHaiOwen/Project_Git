@@ -15,7 +15,7 @@ namespace ProjectHospital.Controllers
         {
 
             DataModel db = new DataModel();
-            ViewBag.listBS = db.get("EXEC HienThiBacSi");
+            ViewBag.listBS = db.get("EXEC HienThiThongTinBacSi");
             return View();
         }
         public ActionResult Home()

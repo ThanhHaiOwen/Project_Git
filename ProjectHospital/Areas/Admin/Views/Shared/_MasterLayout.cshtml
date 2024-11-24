@@ -221,20 +221,15 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="tables.html">
-                        <span class="ti-layout-menu-v"></span> Tables
-                    </a>
-                </li>
-                <li>
                     <a href="#nav-charts" data-toggle="collapse" aria-expanded="false">
-                        <span class="ti-pie-chart"></span> Charts
+                        <span class="ti-pie-chart"></span> Tin tức
                     </a>
                     <ul class="collapse list-unstyled" id="nav-charts">
                         <li>
-                            <a href="charts-1.html">Morris</a>
+                            <a href="@Url.Action("DanhSachTinTuc", "News", new { area = "Admin" })">Danh sách tin tức</a>
                         </li>
                         <li>
-                            <a href="charts-2.html">Flot</a>
+                            <a href="@Url.Action("ThemTinTuc", "News", new { area = "Admin" })">Thêm tin tức</a>
                         </li>
                     </ul>
                 </li>
