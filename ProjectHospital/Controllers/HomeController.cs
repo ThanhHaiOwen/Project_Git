@@ -114,7 +114,7 @@ namespace ProjectHospital.Controllers
 				}
 				else
 				{
-					return RedirectToAction("Home", "Doctor");
+					return RedirectToAction("ProfileLayoutBS", "Doctor");
 
 				}
 				
@@ -196,10 +196,11 @@ namespace ProjectHospital.Controllers
 			try
 			{
 				DataModel db = new DataModel();
-				db.get("Exec CapNhatTienNap " + id + ", "+SoTien +" ," + MaThanhToan + "");
+				db.get("Exec CapNhatTienNap " + id + ", " + SoTien + " ," + MaThanhToan + "");
 			}
-			catch (Exception) { }
-			return RedirectToAction("Index", "Home");
+			catch (Exception) {return RedirectToAction("Index", "Home"); }
+			
+			return RedirectToAction("ProfileLayout", "Home");
 		}
         public ActionResult ProfileLayoutBS()
         {
