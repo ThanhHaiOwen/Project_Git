@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "GDDatLich";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
@@ -86,7 +85,7 @@
     </style>
 </head>
 <body>
-    <form method="post" action="~/Department/XuLyDatLich" class="booking-form" onsubmit="confirmFormValues(event)">
+    <form method="post" action="~/Department/XuLyDatLich" class="booking-form">
         <input type="hidden" id="maBS" name="MaBS" value="@ViewBag.MaBS" />
         <input type="hidden" id="maBN" name="MaBN" value="@ViewBag.MaBN" />
 
@@ -109,32 +108,5 @@
 
         <button type="submit" class="submit-btn">Đặt Lịch</button>
     </form>
-
-    <script>
-        function confirmFormValues(event) {
-            // Lấy các giá trị từ form
-            var maBN = document.getElementById("maBN").value;
-            var maBS = document.getElementById("maBS").value;
-            var ngayHen = document.getElementById("ngayHen").value;
-            var thoiGianBD = document.getElementById("thoiGianBD").value;
-            var thoiGianKT = document.getElementById("thoiGianKT").value;
-
-            // Hiển thị giá trị dưới dạng thông báo
-            var message = `Thông tin đặt lịch:
-                        - Mã Bệnh Nhân: ${maBN}
-                        - Mã Bác Sĩ: ${maBS}
-                        - Ngày Hẹn: ${ngayHen}
-                        - Thời Gian Bắt Đầu: ${thoiGianBD}
-                        - Thời Gian Kết Thúc: ${thoiGianKT}
-
-                        Bạn có chắc chắn muốn gửi thông tin này không?`;
-
-            // Hiển thị thông báo xác nhận
-            if (!confirm(message)) {
-                // Ngăn không cho form submit nếu người dùng bấm "Cancel"
-                event.preventDefault();
-            }
-        }
-    </script>
 </body>
 </html>
