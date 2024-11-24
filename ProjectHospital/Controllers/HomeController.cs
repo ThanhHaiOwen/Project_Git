@@ -160,27 +160,9 @@ namespace ProjectHospital.Controllers
 			return View();
 
 		}
-        public ActionResult HienThiThongTinDeCapNhatBS(string id)
-        { 
-            DataModel db = new DataModel();
-            ViewBag.listBS = db.get("Exec ChiTietBacSi " + id + ";");
-            return View();
+       
 
-        }
-
-        [HttpPost]
-		public ActionResult UpdateProfile(string id,string HoTen, string NgaySinh, string GioiTinh, string DiaChi, string matkhau)
-		{
-			try
-			{
-				DataModel db=new DataModel();
-				db.get("Exec ChinhSuaTT " + id + ",N'" + HoTen + "','" + NgaySinh + "','" + GioiTinh + "', N'" + DiaChi + "', '"+matkhau+"'");
-			}
-			catch(Exception) {
-				return RedirectToAction("HienThiThongTinCapNhat", "Home");
-			}
-			return RedirectToAction("ProfileLayout", "Home");
-		}
+       
 
 		public ActionResult GiaoDienNapTien(string id)
 		{
@@ -202,25 +184,7 @@ namespace ProjectHospital.Controllers
 			
 			return RedirectToAction("ProfileLayout", "Home");
 		}
-        public ActionResult ProfileLayoutBS()
-        {
-            if (Session["MaTK"] != null)
-            {
-                string id = Session["MaTK"].ToString();
-                DataModel db = new DataModel();
-
-                // Tạo truy vấn SQL hoàn chỉnh với tham số được nối chuỗi (cần cẩn thận với SQL Injection)
-                string sqlQuery = "Exec ChiTietBacSi '" + id + "'";
-
-                ViewBag.listBS = db.get(sqlQuery);
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("GiaoDienDangNhap", "Home");
-            }
-        }
-      
+           
         [HttpPost]
         public ActionResult UpdateProfileBS(string id, string HoTen, string NgaySinh, string NamKinhNghiem, string TenKhoa, string TenBV, string matkhau, string email, HttpPostedFileBase AnhBacSi)
         {

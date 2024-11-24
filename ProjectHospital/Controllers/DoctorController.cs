@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace ProjectHospital.Controllers
@@ -64,10 +65,9 @@ namespace ProjectHospital.Controllers
             {
                 return RedirectToAction("GiaoDienDangNhap", "Home");
             }
-        }
-
-        [HttpPost]
-        public ActionResult UpdateProfileBS(string id, string HoTen, string NgaySinh, string NamKinhNghiem, string MaKhoa, string MaBV, string matkhau, string email, HttpPostedFileBase AnhBacSi)
+		}
+		[HttpPost]
+        public ActionResult UpdateProfileBS(string id, string HoTen, string NgaySinh, string NamKinhNghiem, string MaKhoa, string MaBV,string maphikham, string matkhau, HttpPostedFileBase AnhBacSi)
         {
             try
             {
@@ -78,12 +78,13 @@ namespace ProjectHospital.Controllers
                 {
                     // Lưu ảnh vào thư mục hình ảnh
                     string fileName = Path.GetFileName(AnhBacSi.FileName); // Lấy tên file của ảnh
-                    string path = Path.Combine(Server.MapPath("~/Areas/Admin/images"), fileName); // Đường dẫn lưu ảnh
+                    string path = Path.Combine(Server.MapPath("~/Iagaa"), fileName); // Đường dẫn lưu ảnh
                     AnhBacSi.SaveAs(path); // Lưu ảnh vào thư mục
+
                     DataModel db = new DataModel();
 
                     // Thực thi stored procedure `ChinhSuaThongTinBacSi` với các tham số truyền vào, bao gồm tên ảnh đại diện
-                    db.get("Exec ChinhSuaThongTinBacSi "+ id + ", N'" + HoTen + "', '" + NgaySinh + "', " + NamKinhNghiem + ", " + MaKhoa + ", " + MaBV + ", '" + matkhau + "', N'" + email + "', N'" + AnhBacSi.FileName + "'");
+                    db.get("Exec ChinhSuaTTBacSi " + id + ", N'" + HoTen + "', '" + NgaySinh + "', " + NamKinhNghiem + ", " + MaKhoa + ", " + MaBV + ", " + maphikham + ", '" + AnhBacSi.FileName + "','"+matkhau+"';");
 
                 }
 
@@ -91,14 +92,14 @@ namespace ProjectHospital.Controllers
             catch (Exception) { }
             return RedirectToAction("ProfileLayoutBS", "Doctor");
         }
-        public ActionResult HienThiThongTinDeCapNhatBS(string id)
-        {
-            DataModel db = new DataModel();
-            ViewBag.listBS = db.get("Exec ChiTietBacSi " + id + ";");
-            ViewBag.listBV = db.get("Select * from BenhVien");
-            ViewBag.listK = db.get("Select * from Khoa");
-            return View();
-
-        }
-    }
+		public ActionResult HienThibacSi(string id)
+		{
+			DataModel db = new DataModel();
+			ViewBag.listBS = db.get("Exec ChiTietBacSi " + id + ";");
+			ViewBag.listBV = db.get("Select * from BenhVien");
+			ViewBag.listK = db.get("Select * from Khoa");
+            ViewBag.listphikham = db.get("select * from PhiKhamBenh");
+			return View();
+		}
+	}
 }

@@ -28,14 +28,12 @@
                     <div class="row no-mp">
                         <div class="col-md-4">
                             <div class="card mb-4">
-                                <img class="card-img-top" src="~/Hinh/team/1.jpg" alt="Card image">
-                                @*<img class="card-img-top" src="~/Areas/Admin/images/@a[11]" alt="Card image">*@
+                               
+                                <img class="card-img-top" src="~/Imgaa/@a[8]" alt="Card image">
                                 <div class="card-body">
-                                    <h4 class="card-title" style="padding: 10px; ">@a[1]</h4>
-                                    <form action="@Url.Action("HienThiThongTinDeCapNhatBS", "Doctor")" method="get" style="padding-bottom:20px">
-                                        <input type="hidden" name="id" value="@a[9]" />
-                                        <button type="submit" class="btn btn-success mb-2">Chỉnh sửa thông tin</button>
-                                    </form>
+
+                                    <a href="/Doctor/HienThibacSi?id=@a[7]" class="btn btn-success mb-2">Chỉnh sửa thông tin</a>
+
                                 </div>
                             </div>
                         </div>
@@ -44,15 +42,15 @@
                                 <table class="table table-bordered table-striped">
                                     <tbody>
                                         <tr>
-                                            <td><strong>Ngày tạo tài khoản</strong></td>
-                                            <td>@a[8]</td>
+                                            <td><strong>Tên Bác sĩ </strong></td>
+                                            <td>@a[1]</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Chuyên khoa</strong></td>
-                                            <td>@a[4]</td>
+                                            <td><strong>NgaySinh</strong></td>
+                                            <td>@a[2]</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Bệnh viện</strong></td>
+                                            <td><strong>Tên bệnh viện Công tác</strong></td>
                                             <td>
                                                 @a[5]
                                             </td>
@@ -62,12 +60,14 @@
                                             <td>@a[3]</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Ngày sinh</strong> </td>
-                                            <td>@a[2]</td>
+                                            <td><strong>Mức giá khám</strong> </td>
+                                            <td>@a[9]</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Email</strong></td>
-                                            <td>@a[6]</td>
+                                            @*<td><strong>
+    <p>Giá trị id: @a[7]</p>
+</strong></td>
+                                            <td>@a[6]</td>*@
                                         </tr>
                                     </tbody>
                                 </table>

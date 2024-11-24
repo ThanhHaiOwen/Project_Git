@@ -38,10 +38,7 @@
                                 @*<img class="card-img-top" src="~/Areas/Admin/images/@a[11]" alt="Card image">*@
                             <div class="card-body">
                                 <h4 class="card-title">@a[1]</h4>
-                                <form action="@Url.Action("HienThiThongTinDeCapNhatBS", "Home")" method="get">
-                                    <input type="hidden" name="id" value="@a[9]" />
-                                    <button type="submit"  class="btn btn-success mb-2">Chỉnh sửa thông tin</button>
-                                </form>
+                                <a href="/Home/HienThiThongTinDeCapNhatBS?id=@a[7]" class="btn btn-success mb-2">Chỉnh sửa thông tin</a>
                             </div>
                             </div>
                         </div>
