@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "DanhSachTinTuc";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Danh sách tin tức</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Tin tức</li>
+            <li class="breadcrumb-item active">Danh sách tin tức</li>
+        </ol>
+    </div>
+</div>
+<!-- Main Content -->
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Danh sách tin tức</h3>
+                <div class="table-responsive mb-3">
+                    <table id="tableId" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mã tin</th>
+                                <th>Tiêu đề</th>
+                                <th>Nội dung</th>
+                                <th>Ngày đăng</th>
+                                <th>Tác giả</th>
+                                <th>Hình ảnh</th>
+                                <th>Chi tiết tin tức</th>
+                            </tr>
+                        </thead>
+                        @foreach (var a in ViewBag.listTT)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@a[0]</td>
+                                    <td>@a[1]</td>
+                                    <td>@a[2]</td>
+                                    <td>@a[3]</td>
+                                    <td>@a[4]</td>
+                                    <td>@a[5]</td>
+                                    <td> <a href="@Url.Action("ChiTietTinTuc", "News", new {id = @a[0]})">Xem chi tiết</a></td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+
+                    <!--Export links-->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center export-pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-download"></span> csvv</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-printer"></span>  print</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-align-justify"></span> Excel</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /Export links-->
+
+                </div>
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>
+<!-- /Main Content -->

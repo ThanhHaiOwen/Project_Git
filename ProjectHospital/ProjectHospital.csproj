@@ -133,7 +133,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +160,7 @@
     <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.html" />
     <Content Include="Areas\Admin\fonts\fontawesome-webfont3e6e.svg" />
     <Content Include="Areas\Admin\fonts\themify9f24.svg" />
+    <Content Include="Areas\Admin\images\benh-tim-mach.jpg" />
     <Content Include="Areas\Admin\images\BSBTT.jpg" />
     <Content Include="Areas\Admin\images\BSLTH.jpg" />
     <Content Include="Areas\Admin\images\BSLVC.jpg" />
@@ -674,7 +675,6 @@
     <Content Include="Areas\Admin\Views\Appointment\ChiTietCuocHen.cshtml" />
     <Content Include="Areas\Admin\Views\Appointment\ChinhSuaCuocHen.cshtml" />
     <Content Include="Areas\Admin\Views\Payments\DanhSachPhuongThuc.cshtml" />
-    <Content Include="Areas\Admin\Views\News\ThemTinTuc.cshtml" />
     <Content Include="Areas\Admin\Views\Payments\HoaDon.cshtml" />
     <Content Include="Areas\Admin\Views\Hospitals\ThemBenhVien.cshtml" />
     <Content Include="Areas\Admin\Views\Hospitals\DanhSachBenhVien.cshtml" />
@@ -683,11 +683,14 @@
     <Content Include="Areas\Admin\Views\Departments\DanhSachKhoa.cshtml" />
     <Content Include="Areas\Admin\Views\Departments\ThemKhoa.cshtml" />
     <Content Include="Areas\Admin\Views\Departments\ChiTietKhoa.cshtml" />
+    <Content Include="Areas\Admin\Views\News\ThemTinTuc.cshtml" />
+    <Content Include="Areas\Admin\Views\News\DanhSachTinTuc.cshtml" />
+    <Content Include="Areas\Admin\Views\News\ChiTietTinTuc.cshtml" />
+    <Content Include="Areas\Admin\Views\News\TimTinTucUpdate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Shared\_PartialView.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\GiaoDienDangNhap.cshtml" />
     <Content Include="Views\Home\GiaoDienDangKy.cshtml" />
     <Content Include="Views\Home\ProfileLayout.cshtml" />
@@ -703,6 +706,7 @@
     <Content Include="Views\Doctor\HienThiThongTinDeCapNhatBS.cshtml" />
     <Content Include="Views\Department\HienThiBacSi.cshtml" />
     <Content Include="Views\Department\GDDatLich.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

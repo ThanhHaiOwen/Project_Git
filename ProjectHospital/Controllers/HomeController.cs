@@ -20,6 +20,7 @@ namespace ProjectHospital.Controllers
 			}
 			else { DataModel db = new DataModel();
 			ViewBag.list = db.get("select * from BenhVien");
+			ViewBag.listBS = db.get("EXEC HienThiThongTinBacSi");
 			return View();
 			}
 			
