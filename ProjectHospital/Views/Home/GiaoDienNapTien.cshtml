@@ -11,19 +11,6 @@
         <div class="col-md-6">
             <form action="/Home/XuLyNapTien" method="post">
                 <input type="hidden" name="id" value="@ViewBag.listpf[0][9]"/>
-                <!-- Thông báo lỗi nếu có -->
-                @if (TempData["ErrorMessage"] != null)
-                {
-                    <div class="alert alert-danger">
-                        @TempData["ErrorMessage"]
-                    </div>
-                }
-                @if (TempData["SuccessMessage"] != null)
-                {
-                    <div class="alert alert-success">
-                        @TempData["SuccessMessage"]
-                    </div>
-                }
 
                 <!-- Số tiền nạp -->
                 <div class="form-group mb-3">
